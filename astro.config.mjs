@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 
 import htmlBeautifier from "astro-html-beautifier";
+import relativeLinks from "astro-relative-links";
 
 import vercel from "@astrojs/vercel";
 
@@ -9,6 +10,6 @@ import vercel from "@astrojs/vercel";
 export default defineConfig({
   // base: "/astro_build-test",
   output: "static",
-  integrations: [htmlBeautifier()],
+  integrations: [htmlBeautifier(), relativeLinks()],
   adapter: vercel(),
 });
