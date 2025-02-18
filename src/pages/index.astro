@@ -1,5 +1,6 @@
 ---
 import Nav from '../components/Nav.astro';
+import Swiper from '../components/swiper/Swiper.astro';
 import Layout from '../layouts/Layout.astro';
 
 	
@@ -20,7 +21,8 @@ import Layout from '../layouts/Layout.astro';
 		
 		<div class="container">
 			<div class="mainVisual">
-				<div class="swiper">
+				<Swiper />
+				<!-- <div class="swiper">
 					<div class="swiper-wrapper">
 							<div class="swiper-slide" style="background-color: crimson;">Slide 1</div>
 							<div class="swiper-slide" style="background-color: goldenrod;">Slide 2</div>
@@ -34,39 +36,23 @@ import Layout from '../layouts/Layout.astro';
 					<div class="swiper-button-prev"></div>
 					<div class="swiper-button-next"></div>
 
-				</div>
+				</div> -->
 			</div>
+			<section class="content_1">
+				content_1
+			</section>
+			<section class="content_2">
+				content_2
+			</section>
+			<section class="content_3">
+				content_3
+			</section>
 		</div>
 		<footer>
 			푸터
 		</footer>
 	</div>
 
-	<script>
-		import Swiper from 'swiper';
-		import { Navigation, Pagination,Autoplay } from 'swiper/modules';
-		import 'swiper/css';
-		import 'swiper/css/navigation';
-		import 'swiper/css/pagination';
-  		const swiper = new Swiper('.swiper', {	
-			modules: [Navigation, Pagination, Autoplay],
-			loop: true,	
-			// If we need pagination
-			pagination: {
-				el: '.swiper-pagination',
-			},
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-			centeredSlides: true,
-			autoplay: {
-				delay: 2500,
-				disableOnInteraction: false,
-			},
-		});
-	</script>
-	
 </Layout>
 
 <style lang="scss">
@@ -79,12 +65,4 @@ import Layout from '../layouts/Layout.astro';
 		gap: 12px;
 		align-items: center;
 	}
-	.swiper {
-		height: 400px;
-	}
-	.swiper-slide {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-</style>
+	</style>
