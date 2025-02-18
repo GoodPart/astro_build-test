@@ -1,0 +1,41 @@
+---
+import astroLogo from '../assets/astro.svg';
+import background from '../assets/background.svg';
+---
+
+<nav id="container">
+	<ul role="list">
+		<li role="listitem">
+			<a href="./main/">main</a>
+		</li>
+		<li>
+			<a href="./about/index.html">about</a>
+		</li>
+		<li>
+			<a href="./product/">product</a>
+		</li>
+		<li>
+			<a href="./product/pie/s">pie</a>
+		</li>
+	</ul>
+</nav>
+
+<style lang="scss">
+	nav {
+		ul {
+			display: flex;
+			gap: 12px;
+			align-items: center;
+		}
+		li {
+			list-style: none;
+		}
+		a {
+			font-size: 20px;
+			text-decoration: none;
+			color: #333;
+			font-weight: 600;
+		}
+	}
+	
+</style>
