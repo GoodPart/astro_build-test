@@ -1,16 +1,37 @@
 <div class="swiper">
-    <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-color: crimson;">Slide 1</div>
-            <div class="swiper-slide" style="background-color: goldenrod;">Slide 2</div>
-            <div class="swiper-slide" style="background-color: darkcyan;">Slide 3</div>
-            <div class="swiper-slide" style="background-color: crimson;">Slide 4</div>
-            <div class="swiper-slide" style="background-color: goldenrod;">Slide 5</div>
-            <div class="swiper-slide" style="background-color: darkcyan;">Slide 6</div>
+    <div class="swiper-wrapper"aria-live="off">
+            <div class="swiper-slide" style="background-color: crimson;">
+				<a href="www.naver.com" target="_blank">naver</a>
+			</div>
+            <div class="swiper-slide" style="background-color: goldenrod;">
+				<a href="www.google.com" target="_blank">
+					google
+				</a>
+			</div>
+            <div class="swiper-slide" style="background-color: darkcyan;">
+				<a href="http://daum.net" target="_blank" rel="noopener noreferrer">
+					daum
+				</a>
+			</div>
     </div>
     <div class="swiper-pagination"></div>
 
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
+
+	<div class="controller">
+		<ul>
+			<li class="prev">
+				 <button type="button">비주얼 이전</button>
+			</li>
+			<li class="stop">
+				 <button type="button">비주얼 정지</button>
+			</li>
+			<li class="next">
+				 <button type="button">비주얼 다음</button>
+			</li>
+		</ul>
+	</div>
 
     <script>
         import Swiper from 'swiper';
@@ -19,6 +40,12 @@
         import 'swiper/css';
 		import 'swiper/css/navigation';
 		import 'swiper/css/pagination';
+
+		const controll = document.querySelector(".controller");
+		const stop = controll?.querySelector(".stop")
+		const prev = controll?.querySelector(".prev");
+		const next = controll?.querySelector(".next");
+
 
         const swiper = new Swiper('.swiper', {	
 			modules: [Navigation, Pagination, Autoplay],
@@ -36,6 +63,32 @@
 				disableOnInteraction: false,
 			},
 		});
+
+		prev?.addEventListener("click", ()=> {
+			swiper.navigation.prevEl.click()
+		})
+		next?.addEventListener("click", ()=> {
+			swiper.navigation.nextEl.click()	
+		})
+
+		stop?.addEventListener("click", ()=> {
+			if(document.querySelector(".swiper .swiper-wrapper")?.getAttribute("aria-live") === 'off') {
+				swiper.autoplay.pause();
+				document.querySelector(".swiper .swiper-wrapper")?.setAttribute('aria-live', 'polite')
+
+				stop.children[0].textContent = "비주얼 재생"
+			}else {
+				swiper.autoplay.start();
+				document.querySelector(".swiper .swiper-wrapper")?.setAttribute('aria-live', 'off')
+				stop.children[0].textContent = "비주얼 정지"
+			}	
+		})
+
+		swiper.on('slideChangeTransitionEnd', (e)=> {
+			const activeSlide = e.slides[e.activeIndex];
+			const firstFocusableElement = activeSlide.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+
+		})
     </script>
 </div>
 
@@ -56,5 +109,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+	.controller {
+		z-index: 100;
+		position: absolute;
+		bottom: 0;
+		left: 0;
 	}
 </style>

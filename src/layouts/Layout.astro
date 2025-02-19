@@ -1,18 +1,49 @@
 ---
+import Nav from "@components/Nav.astro";
 import 	"@styles/global.css";
+import Head from "src/share/components/head/Head.astro";
 const {title} = Astro.props;
+
+
 ---
 
 <!doctype html>
 <html lang="ko">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generat	or" content={Astro.generator} />
-		<title>asdasd</title>
-	</head>
+	<Head
+		title={title}
+	 />
 	<body>
-		<slot />
+		<div class="wrap">
+			<header>
+				<div class="logo">
+					<a href="/astro_build-test/">
+					<picture>
+							<source media="(max-width : 480px)" srcset="/astro_build-test/logo2.png">
+							<source media="(min-width : 481px)" srcset="/astro_build-test/logo.png">
+							<img src="/astro_build-test/logo.png" width="100" alt="nike">
+						</picture>		
+					</a>
+				</div>
+				<Nav />
+				
+			</header>
+			<slot />
+				<footer>
+				푸터
+			</footer>
+
+		</div>
 	</body>
 </html>
+
+<style lang="scss">
+	.wrap {
+		width: 1200px;
+		margin: 0 auto;
+	}
+	header {
+		display: flex;
+		gap: 12px;
+		align-items: center;
+	}
+	</style>

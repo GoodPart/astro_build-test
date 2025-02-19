@@ -2,52 +2,21 @@
 import Nav from '@components/Nav.astro';
 import Swiper from '@components/swiper/Swiper.astro';
 import Layout from "@layouts/Layout.astro"
-
-	
 ---
-
-<Layout>
-	<div class="wrap">
-		<header>
-			<div class="logo">
-				<picture>
-					<source media="(max-width : 480px)" srcset="/astro_build-test/logo2.png">
-					<source media="(min-width : 481px)" srcset="/astro_build-test/logo.png">
-					<img src="/astro_build-test/logo.png" width="100" alt="nike">
-				</picture>		
-			</div>
-			<Nav />
-		</header>
-		
-		<div class="container">
-			<div class="mainVisual">
-				<Swiper />
-			</div>
-			<section class="content_1">
-				content_1
-			</section>
-			<section class="content_2">
-				content_2
-			</section>
-			<section class="content_3">
-				content_3
-			</section>
+<Layout title="웹 접근성 | 나이키">
+	<div class="container">
+		<div class="mainVisual">
+			<Swiper />
 		</div>
-		<footer>
-			푸터
-		</footer>
+		<section class="content_1">
+			content_1
+		</section>
+		<section class="content_2">
+			content_2
+		</section>
+		<section class="content_3">
+			content_3
+		</section>
 	</div>
-
 </Layout>
 
-<style lang="scss">
-	.wrap {
-		width: 1200px;
-		margin: 0 auto;
-	}
-	header {
-		display: flex;
-		gap: 12px;
-		align-items: center;
-	}
-	</style>
