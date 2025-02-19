@@ -8,8 +8,9 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  // base: "/astro_build-test",
-  output: "static",
+  site: "https://goodpart.github.io",
+  base: "/astro_build-test",
+  // output: "static",
   integrations: [htmlBeautifier(), relativeLinks()],
   adapter: vercel(),
 });
