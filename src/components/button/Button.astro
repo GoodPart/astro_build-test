@@ -1,0 +1,22 @@
+---
+const {href,target} = Astro.props;
+
+---
+
+<a href={href} target={target}>
+    <slot/>
+</a>
+
+
+<style lang="scss">
+    @use "../../share/style/mixin/index.scss" as *;
+
+    a {
+        padding: 8px 20px;
+        border-radius: rem(24);
+        list-style: none;
+        text-decoration: none;
+        color : #fff;
+        background-color: #222;
+    }
+</style>

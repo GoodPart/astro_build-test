@@ -1,0 +1,4 @@
+@function rem($size, $compare:16) {
+    $remSize : calc($size/$compare);
+    @return #{$remSize}rem;
+}   

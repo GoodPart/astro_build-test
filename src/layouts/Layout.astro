@@ -2,8 +2,8 @@
 import Nav from "@components/Nav.astro";
 import 	"@styles/global.css";
 import Head from "src/share/components/head/Head.astro";
+import {envSrcUrl, envLinkUrl} from "../share/components/head/env";
 const {title} = Astro.props;
-
 
 ---
 
@@ -16,11 +16,11 @@ const {title} = Astro.props;
 		<div class="wrap">
 			<header>
 				<div class="logo">
-					<a href="/astro_build-test/">
+					<a href={envLinkUrl("/")}>
 					<picture>
-							<source media="(max-width : 480px)" srcset="/astro_build-test/logo2.png">
-							<source media="(min-width : 481px)" srcset="/astro_build-test/logo.png">
-							<img src="/astro_build-test/logo.png" width="100" alt="nike">
+							<source media="(max-width : 480px)" srcset={envSrcUrl("logo2.png")}>
+							<source media="(min-width : 481px)" srcset={envSrcUrl("logo.png")}>
+							<img src={envSrcUrl("logo.png")} width="100" alt="nike">
 						</picture>		
 					</a>
 				</div>

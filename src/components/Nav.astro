@@ -1,25 +1,17 @@
 ---
-const dev = import.meta.env.DEV;
-const setHrefPath = (pageName:string)=> {
-	if(dev === true) {
-		return `${import.meta.env.BASE_URL}/${pageName}/`;
-	}else {
-		return `${import.meta.env.BASE_URL}/${pageName}/index.html`;
-
-	}
-}
+import {envLinkUrl} from "../share/components/head/env"
 ---
 
 <nav id="container">
 	<ul role="list">
 		<li>
-			<a href={setHrefPath('about')}>about</a>
+			<a href={envLinkUrl('about')}>about</a>
 		</li>
 		<li>
-			<a href={setHrefPath('product')}>product</a>
+			<a href={envLinkUrl('product')}>product</a>
 		</li>
 		<li>
-			<a href={setHrefPath('product/pie')}>pie</a>
+			<a href={envLinkUrl('product/pie')}>pie</a>
 		</li>
 	</ul>
 </nav>
