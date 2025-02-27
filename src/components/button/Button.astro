@@ -1,9 +1,9 @@
 ---
-const {href,target} = Astro.props;
+const {href,target, class:className} = Astro.props;
 
 ---
 
-<a href={href} target={target}>
+<a class={className} href={href} target={target}>
     <slot/>
 </a>
 
@@ -12,11 +12,21 @@ const {href,target} = Astro.props;
     @use "../../share/style/mixin/index.scss" as *;
 
     a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
         padding: 8px 20px;
         border-radius: rem(24);
         list-style: none;
         text-decoration: none;
         color : #fff;
         background-color: #222;
+    }
+
+    @media all and (max-width : 768px) {
+        a {
+            justify-content: center;
+            width: 80%;
+        }
     }
 </style>

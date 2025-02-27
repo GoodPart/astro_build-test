@@ -1,5 +1,7 @@
 ---
 import {envLinkUrl} from "../share/components/head/env"
+import { Toggle } from 'astro-theme-toggle'
+
 ---
 
 <nav id="container">
@@ -14,9 +16,15 @@ import {envLinkUrl} from "../share/components/head/env"
 			<a href={envLinkUrl('product/pie')}>pie</a>
 		</li>
 	</ul>
+	<Toggle style="width: 32px; height: 32px;">토글</Toggle>
 </nav>
 
 <style lang="scss">
+	#container {
+		display: flex;
+		justify-content: space-between;
+		flex: 1;
+	}
 	nav {
 		ul {
 			display: flex;
@@ -29,16 +37,18 @@ import {envLinkUrl} from "../share/components/head/env"
 		a {
 			font-size: 20px;
 			text-decoration: none;
-			color: #333;
+    		color: var(--text-color);
 			font-weight: 600;
 		}
-		:focus-visible {
-			outline: 3px solid red;
-		}
-		:focus:not(:focus-visible) {
-				outline: 0;
-			}
+		
+		
 
+	}
+
+	@media all and (max-width: 768px) {
+		nav {
+			display: none;
+		}
 	}
 	
 </style>

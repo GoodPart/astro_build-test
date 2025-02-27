@@ -17,6 +17,7 @@
     "astro-html-beautifier": "^1.0.4",
     "astro-relative-links": "^0.4.2",
     "astro-seo": "^0.8.4",
+    "astro-theme-toggle": "^0.5.1",
     "autoprefixer": "^10.4.20",
     "gh-pages": "^6.3.0",
     "sass": "^1.85.0",

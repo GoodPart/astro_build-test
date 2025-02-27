@@ -1,8 +1,9 @@
 ---
 import {SEO} from "astro-seo";
 
+import { ThemeScript } from 'astro-theme-toggle'
+
 const {title} = Astro.props;
-console.log(title)
 ---
 
 <head>
@@ -40,4 +41,6 @@ console.log(title)
         ],
       }}
     />
+    <!-- <ClientRouter  /> -->
+    <ThemeScript />
 </head>
