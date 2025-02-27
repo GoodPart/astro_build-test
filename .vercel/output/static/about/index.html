@@ -117,7 +117,7 @@
 	nav[data-astro-cid-dmqpwcec] a[data-astro-cid-dmqpwcec] {
 		font-size: 20px;
 		text-decoration: none;
-		color: #333;
+		color: var(--text-color);
 		font-weight: 600
 	}
 
@@ -265,6 +265,26 @@
 		outline: 0
 	}
 
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+		--background: #eee;
+		--text-color: #2c2c2c
+	}
+
+	.dark {
+		--background: #303b57;
+		--text-color: #fff
+	}
+
+	html {
+		font-family: system-ui, sans-serif;
+		background: var(--background);
+		color: var(--text-color)
+	}
+
 	.wrap[data-astro-cid-sckkx6r4] {
 		width: 1200px;
 		margin: 0 auto
@@ -377,7 +397,7 @@
 		</header>
 		<h1>about</h1>
 		<div style="height:1000px;width:100%;background:orange"> test123 </div>
-		<footer data-astro-cid-sckkx6r4> 푸터 </footer>
+		<footer data-astro-cid-sckkx6r4> <!-- {locals} --> </footer>
 	</div>
 </body>
 
