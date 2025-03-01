@@ -1,0 +1,28 @@
+@use "./designToken/variables.css";
+
+// global style
+:root {
+  --accent: 136, 58, 234;
+  --accent-light: 224, 204, 250;
+  --accent-dark: 49, 10, 101;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    rgb(var(--accent-light)) 30%,
+    white 60%
+  );
+
+  --background: var(--theme-light-background-color);
+  --text-color: var(--theme-light-text-color);
+}
+
+.dark {
+  --background: var(--theme-dark-background-color);
+  --text-color: var(--theme-dark-text-color);
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  background: var(--background);
+  color: var(--text-color);
+}

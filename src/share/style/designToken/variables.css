@@ -1,0 +1,30 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --theme-dark-background-color: #303b57;
+  --theme-dark-text-color: #fff;
+  --theme-light-background-color: #fff;
+  --theme-light-text-color: #2c2c2c;
+  --foundation-color-main-100: #cbe8ff;
+  --foundation-color-main-200: #a7d9ff;
+  --foundation-color-main-300: #68bbff;
+  --foundation-color-main-400: #329cff;
+  --foundation-color-main-500: #067dfd;
+  --foundation-color-main-600: #0062e5;
+  --foundation-color-main-700: #0048c8;
+  --foundation-color-main-800: #0231a6;
+  --foundation-color-main-900: #072182;
+  --foundation-color-sementic-red-100: #ffe1e4;
+  --foundation-color-sementic-red-200: #ffc3c9;
+  --foundation-color-sementic-red-300: #ff909a;
+  --foundation-color-sementic-red-400: #ff5e6b;
+  --foundation-color-sementic-red-500: #fd3645;
+  --foundation-color-sementic-red-600: #e2233a;
+  --foundation-color-sementic-red-700: #bf172c;
+  --foundation-color-sementic-red-800: #9b0d1f;
+  --foundation-color-sementic-red-900: #7a0615;
+
+  --foundation-color-sementic-primary-500: #067dfd;
+}
