@@ -1,9 +1,9 @@
 ---
 
-const {href,target,variant , class:className} = Astro.props;
+const {href,target,variant, size='m',class:className} = Astro.props;
 ---
 
-<a class:list={[className, variant]} href={href} target={target}>
+<a class:list={[className, variant, 'size--'+size]} href={href} target={target}>
     <slot/>
 </a>
 
@@ -14,7 +14,7 @@ const {href,target,variant , class:className} = Astro.props;
     a {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 8px;   
         padding: 8px 20px;
         border-radius: rem(24);
         list-style: none;
@@ -22,12 +22,29 @@ const {href,target,variant , class:className} = Astro.props;
         color : #fff;
         background-color: #222;
 
+
+        &.size {
+            &--s {
+                height: 24px;
+            }
+            &--m {
+                height: 32px;
+            }
+            &--l {
+                height: 40px;
+            }   
+        }
+        
         &.primary {
-            background-color: var(--foundation-color-main-500);
+            background-color: setColor($root : 'main');
+        }
+        &.secondary {
+            background-color: setColor($color : 'purple' );
         }
         &.warring {
-            background-color: var(--foundation-color-sementic-red-500);
-        }
+            background-color: setColor( $number : 800);
+        }   
+        
 
     }
 

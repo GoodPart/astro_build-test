@@ -1,4 +1,12 @@
-@function rem($size, $compare:16) {
-    $remSize : calc($size/$compare);
-    @return #{$remSize}rem;
-}   
+@function rem($size, $compare: 16) {
+  $remSize: calc($size/$compare);
+  @return #{$remSize}rem;
+}
+
+@function setColor($root: "sementic", $color: "red", $number: 500) {
+  @if ($root == "main") {
+    @return var(--foundation-color-#{$root}-#{$number});
+  } @else {
+    @return var(--foundation-color-sementic-#{$color}-#{$number});
+  }
+}
