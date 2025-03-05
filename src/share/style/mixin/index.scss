@@ -3,10 +3,6 @@
   @return #{$remSize}rem;
 }
 
-@function setColor($root: "sementic", $color: "red", $number: 500) {
-  @if ($root == "main") {
-    @return var(--foundation-color-#{$root}-#{$number});
-  } @else {
-    @return var(--foundation-color-sementic-#{$color}-#{$number});
-  }
+@function setColor($color: "red", $number: 500) {
+  @return var(--foundation-color-sementic-#{$color}-#{$number});
 }
