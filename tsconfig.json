@@ -11,7 +11,8 @@
       "@pages/*": ["src/pages/*"],
       "@public/*": ["public/*"],
       "@styles/*": ["src/styles/*"],
-      "@share/*": ["src/share/*"]
+      "@share/*": ["src/share/*"],
+      "@feature/*": ["src/feature/*"]
     }
   }
 }

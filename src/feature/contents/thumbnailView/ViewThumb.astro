@@ -1,0 +1,39 @@
+---
+import Desc from "@share/components/desc/Desc.astro"
+import Title from "@share/components/title/Title.astro"
+const {title, route}  = Astro.props;
+---
+
+<figure>
+    <div class="thumbnail">
+        <img src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/h_1064,c_limit/660ad02e-665a-47d6-9d67-3adfb4b8083c/nike-just-do-it.jpg" alt="Nike. Just Do It">
+    </div>	
+    <figcaption>
+        <div>
+            <Title tag="h3" title={title} />
+            <Desc>나이키와 함께 레이스를 준비해 보세요. 트레이닝 참여 멤버를 위한 서울 레이스 추가 참가권부터 LA 레이스 참가 기회까지. After Dark Tour Seoul 10K 참가자는 물론, 여성 러너라면 누구나 10주 트레이닝에 함께 하고 특별한 리워드에 도전할 수 있습니다.</Desc>
+        </div>  
+    </figcaption>
+    {route ? <a href={route.url}></a> : null}
+</figure>
+
+<style lang="scss">
+    figure {
+        position: relative;
+        img {
+            width: 100%;
+        }
+    }
+
+    a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    figcaption {
+        text-align: left;
+    }
+
+</style>

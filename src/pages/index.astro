@@ -2,14 +2,17 @@
 import Button from '@share/components/button/Button.astro';
 import Swiper from '@share/components/swiper/Swiper.astro';
 import Layout from "@layouts/Layout.astro"
+import ViewThumb from '@feature/contents/thumbnailView/ViewThumb.astro';
+import Flex from '@share/components/layout/Flex.astro';
+
 import { Image } from 'astro:assets';
-import logo from "@assets/sprites/logo192.png"
+import logo from "@assets/sprites/logo192.png"	
 ---
 <Layout title="웹 접근성 | 나이키">
 	<div class="container">
 		<div class="mainVisual">
 			<Swiper />
-		</div>
+		</div>	
 		<section class="content_1">
 			<div class="section__wrap">
 				<p>새로운 시작을 위한 완벽한 준비</p>
@@ -38,7 +41,26 @@ import logo from "@assets/sprites/logo192.png"
 			</div>
 		</section>
 		<section class="content_3">
-			content_3
+			<div class="sestion__title">	
+				<h2>After Dark Tour	</h2>	
+			</div>
+			<div class="section__content">
+				<Flex justify="between" gap="12">
+					<ViewThumb route={{url : "https://naver.com"}} title="AFTER DARK TOUR 트레이닝" />
+					<ViewThumb title="함께 달리는 10주: 1주차 미션" />
+				</Flex>
+				<!-- <figure>	
+						<div class="thumbnail">
+							<img src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/h_1064,c_limit/660ad02e-665a-47d6-9d67-3adfb4b8083c/nike-just-do-it.jpg" alt="Nike. Just Do It">
+						</div>	
+						<figcaption>
+							<div>
+								<Title tag="h3" title="test123" />
+								<Desc>나이키와 함께 레이스를 준비해 보세요. 트레이닝 참여 멤버를 위한 서울 레이스 추가 참가권부터 LA 레이스 참가 기회까지. After Dark Tour Seoul 10K 참가자는 물론, 여성 러너라면 누구나 10주 트레이닝에 함께 하고 특별한 리워드에 도전할 수 있습니다.</Desc>
+							</div>
+						</figcaption>
+				</figure> -->
+			</div>
 		</section>
 	</div>
 </Layout>

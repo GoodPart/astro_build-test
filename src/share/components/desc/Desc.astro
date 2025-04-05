@@ -1,0 +1,16 @@
+---
+const {title, tag} = Astro.props;
+const Tag = tag || `p`;
+---
+
+<Tag>
+    <slot />
+</Tag>
+
+
+<style lang="scss">
+    * {   
+        line-height: 20px;
+        // margin-top: 8px ;
+    }
+</style>

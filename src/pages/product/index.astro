@@ -3,5 +3,171 @@ import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout>
-    <h1>sproduct</h1>
+    <div class="wrap filter-wrap">
+        <section>
+            <h1>section01</h1>
+            <div>
+                <input type="radio" id="section0101" name="section01"><label for="section0101">section0101</label>
+                <input type="radio" id="section0102" name="section01"><label for="section0102">section0102</label>
+            </div>
+            
+        </section>
+        <section class="hide">
+            <h1>section02</h1>
+            <div>
+                <input type="radio" id="section0201" name="section02"><label for="section0201">section0201</label>
+                <input type="radio" id="section0202" name="section02"><label for="section0202">section0202</label>
+                <input type="radio" id="section0203" name="section02"><label for="section0203">section0203</label>
+            </div>
+            
+        </section>
+        <section class="hide">
+            <h1>section03</h1>
+            <div>
+                <input type="radio" id="section0301" name="section03"><label for="section0301">section0301</label>
+                <input type="radio" id="section0302" name="section03"><label for="section0302">section0302</label>
+            </div>
+        </section>
+        <section class="hide">
+            <h1>section04</h1>
+            <div>
+                <input type="radio" id="section0401" name="section04"><label for="section0401">section0401</label>
+            </div>
+        </section>
+        <section class="hide">
+            <h1>section05</h1>
+            <div>
+                <input type="radio" id="section0501" name="section05"><label for="section0501">section0501</label>
+                <!-- <input type="radio" id="section0502" name="section05"><label for="section0502">section0502</label>
+                <input type="radio" id="section0503" name="section05"><label for="section0503">section0503</label> -->
+            </div>
+            
+        </section>
+    </div>
 </Layout>
+
+<script>
+// import { getSecret } from "astro:env/server";
+
+    type SectionsProps = NodeListOf<HTMLElement>
+
+
+    class FilterSection {
+        rootEle : string
+        bindData : string
+        constructor({rootEle, bindData} : {rootEle : string, bindData : string}) {
+            this.rootEle = rootEle;
+            this.bindData = bindData;
+
+            this.init()
+        }
+        
+
+        init() {
+            const rootWrap = document.querySelector(this.rootEle);
+            const getSections = rootWrap?.querySelectorAll(`section`);
+            
+            if(rootWrap && getSections) {
+                this.setData(getSections)
+                this.setEvent(rootWrap, getSections)
+                this.firstLoad(getSections)
+            }
+        }
+
+        setData(getSections : SectionsProps) {
+
+            getSections?.forEach((section, index) => {
+                section.setAttribute(this.bindData, `${index}`);
+                
+                const radios = section.querySelectorAll("input");
+
+                radios.forEach((radio)=> {
+                    radio.setAttribute(this.bindData, `${index}`);
+                })
+            });
+        }
+
+        firstLoad(getSections:SectionsProps) {
+            /*
+                처음 페이지 onload시 section의 radio가 단일개 일 경우, 아래 로직 진행
+            */
+
+            getSections.forEach(section => {
+                const radios = section.querySelectorAll("input");
+                const getDataset = Number(section.getAttribute(this.bindData));
+
+                /*
+                    section의 data-filter-num이 0(처음)이고
+                    section 내부의 radio가 단일개일 경우 해당 radio에 click메소드 진행.
+                */
+                if(getDataset == 0 && radios.length == 1) {
+                    radios[0].click()
+                }
+            });
+            
+        }
+        setEvent(rootWrap: Element,getSections : SectionsProps) {
+
+            getSections.forEach(section => {
+                const radios = section.querySelectorAll("input")
+
+                radios.forEach(radio => {
+
+                    // radio 태그에 대한 input 이벤트 추가
+                    radio.addEventListener("input", ()=> {
+                        const getNextDataNumber = Number(radio.dataset.filterNum) + 1; // this.input에 filter-num값을 이용 
+                        const getSections = rootWrap?.querySelector(`section[${this.bindData}='${getNextDataNumber}']`); // 다음 section찾기
+
+                        if(getSections){
+                            if(getSections?.children[1].querySelectorAll("input").length == 1) {
+                                /*
+                                    radio가 단일개로, this.input에 click() 메소드 진행
+                                    setTimeout제거하여 사용(진행상황 확인용)
+                                */
+                                setTimeout(()=> {
+                                    getSections?.children[1].querySelectorAll("input")[0].click()
+                                }, 500)
+                            }
+                            
+                            getSections?.classList.remove("hide")
+                        }
+                        
+                    })
+                })
+
+            })
+        }
+        
+    }
+
+    const test = new FilterSection({
+        rootEle : ".filter-wrap",
+        bindData :  "data-filter-num"
+    })
+</script>
+
+<style lang="scss">
+    h1 {
+        font-weight: bold;
+        font-size: 24px;
+    }
+    .wrap {
+        display: flex;   
+        flex-direction: column;
+        gap: 12px;
+
+        section {
+            display: flex;
+            gap: 12px;
+        }
+
+        section.hide {
+            display: none;
+        }
+
+
+        section div label{
+            padding: 12px;
+        }
+    }
+</style>

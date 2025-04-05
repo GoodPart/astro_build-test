@@ -1,0 +1,50 @@
+---
+const {direction='row', justify='start', gap=4} = Astro.props;
+const gapValue = typeof gap === "number" ? `${gap}px` : gap;
+
+const dynamicStyle = `
+    .flex {
+        display
+    }
+`
+---
+<div class:list={
+[
+    "flex",
+    `flex__direction--${direction}`,
+    `flex__justify--${justify}`,
+]
+} style={{gap : `${gap}px`}}>
+    <slot />
+</div>
+
+
+<style lang="scss"> 
+    
+    .flex { 
+        display: flex;
+
+        &__direction {
+            &--column {
+                flex-direction: column;
+            }
+        }
+
+        &__justify {
+            &--start {
+                justify-content: flex-start;
+            }
+            &--end {
+                justify-content: flex-end;
+            }
+            &--bwtween {
+                justify-content: space-between;
+            }
+            &--center {
+                justify-content: center;
+            }
+        }
+
+
+    }
+</style>
